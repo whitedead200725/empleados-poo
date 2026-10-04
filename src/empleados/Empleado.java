@@ -43,7 +43,8 @@ public abstract class Empleado {
     System.out.println("Los datos son: ");
     System.out.println("ID: " + idEmpleado);
     System.out.println("Nombre: " + nombre);
-    
+    System.out.println();
+
     }
  
     public int getIdEmpleado() {

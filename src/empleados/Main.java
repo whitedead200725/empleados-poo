@@ -14,7 +14,10 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hola Javi juas juas");
+        EmpleadoPorHora fer = new EmpleadoPorHora(26003, "Roberto", 40, 5.50);
+
+        
+        fer.mostrarDatos();
    }
     
 }

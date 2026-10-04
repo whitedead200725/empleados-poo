@@ -7,7 +7,7 @@ package empleados;
  *
  */
 
-public Class EmpleadoAdministrativo extends Empleado {
+public class EmpleadoAdministrativo extends Empleado {
     
     private double salarioMensual;
 
@@ -26,15 +26,16 @@ public Class EmpleadoAdministrativo extends Empleado {
         this.salarioMensual = salarioMensual;
     }
 
-    @override 
+    @Override 
     public double calcularSalario(){
         return salarioMensual;
     }
 
-    @override
+    @Override
     public void mostrarDatos(){
         super.mostrarDatos();
         System.out.println("Salario mensual: " + salarioMensual);
+        System.out.println();
     }
 
 
