@@ -7,7 +7,15 @@ package empleados;
 import java.util.ArrayList;
 
 /**
- *
+ *Esta clase administra la lista de empleados de todo el sistema
+ * 
+ * almacena todos los tipos de empleados en un arreglo de tipo {@code Empleado}
+ * y ofrece las opciones que pide la guia de trabajo: Registrar empleados, Consultar empleados
+ * Calcular remuneraciones. Generar reportes, Modificar información, Consultar información según el tipo de empleado.
+ * 
+ * 
+ *  ------ AUN EN DESARROLLO ------ 
+ * 
  * @author rober
  */
 public class AdminEmpleados {
