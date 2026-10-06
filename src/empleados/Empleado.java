@@ -41,7 +41,7 @@ public abstract class Empleado {
     
     public void mostrarDatos() {
     System.out.println("========================= ");
-    System.out.println("|    Los datos son:     |");
+    System.out.println(" Los datos de " + nombre + " son  ");
     System.out.println("========================= ");
     System.out.println("ID: " + idEmpleado);
     System.out.println("Nombre: " + nombre);

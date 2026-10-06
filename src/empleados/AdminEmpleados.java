@@ -42,9 +42,18 @@ public void registrarEmpleado(Empleado empleado) {
                 System.out.println("El empleado: " + empleado.getNombre() + " Fue agregado exitosamente");
                 return;
         }
-                System.out.println("El empleado " + empleado.getNombre() + " Ya fue registrado antes");
-                
-                
-         }   
+                System.out.println("El empleado " + empleado.getNombre() + " Ya fue registrado antes");               
+         }
+
+public void consultarEmpleados() {
+        if (empleados.isEmpty()) {
+                System.out.println("No hay empleados registrados");
+                return;
+        } 
+            System.out.println("\n -- 𝗹𝗶𝘀𝘁𝗮 𝗱𝗲 𝘁𝗼𝗱𝗼𝘀 𝗹𝗼𝘀 𝗲𝗺𝗽𝗹𝗲𝗮𝗱𝗼𝘀 𝗿𝗲𝗴𝗶𝘀𝘁𝗿𝗮𝗱𝗼𝘀-- \n");
+            for (Empleado Lista : empleados){
+                Lista.mostrarDatos();
+                }
+ } 
     
 }

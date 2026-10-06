@@ -27,6 +27,8 @@ public class Main {
         admin.registrarEmpleado(Fer);
         admin.registrarEmpleado(Angel);
         admin.registrarEmpleado(Angel);
+        
+        admin.consultarEmpleados();
    }
     
 }

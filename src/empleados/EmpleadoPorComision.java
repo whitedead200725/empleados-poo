@@ -53,6 +53,6 @@ public class EmpleadoPorComision extends Empleado {
         System.out.println("Salario base: " + salarioBase);
         System.out.println("Ventas realizadas: " + ventasRealizadas);
         System.out.println("Porcentaje de comisión: " + porcentajeComision);
-        System.out.println("Salario total: " + calcularSalario());
+        System.out.println("Salario total: " + calcularSalario() + "\n");
     }
 }
