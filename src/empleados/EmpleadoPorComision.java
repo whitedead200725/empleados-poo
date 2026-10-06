@@ -11,8 +11,7 @@ public class EmpleadoPorComision extends Empleado {
     private double ventasRealizadas;
     private double porcentajeComision;
 
-    public EmpleadoPorComision(int idEmpleado, String nombre, double salarioBase,
-                               double ventasRealizadas, double porcentajeComision) {
+    public EmpleadoPorComision(int idEmpleado, String nombre, double salarioBase,double ventasRealizadas, double porcentajeComision) {
         super(idEmpleado, nombre);
         this.salarioBase = salarioBase;
         this.ventasRealizadas = ventasRealizadas;

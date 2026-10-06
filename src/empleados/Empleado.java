@@ -40,7 +40,9 @@ public abstract class Empleado {
     public abstract double calcularSalario();
     
     public void mostrarDatos() {
-    System.out.println("Los datos son: ");
+    System.out.println("========================= ");
+    System.out.println("|    Los datos son:     |");
+    System.out.println("========================= ");
     System.out.println("ID: " + idEmpleado);
     System.out.println("Nombre: " + nombre);
     System.out.println();

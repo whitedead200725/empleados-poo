@@ -14,13 +14,19 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        EmpleadoPorHora fer = new EmpleadoPorHora(26003, "Roberto", 40, 5.50);
 
-        EmpleadoPorComision comision = new EmpleadoPorComision(2, "Carlos", 500.0, 2000.0, 0.10);
-
-        comision.mostrarDatos();
+        AdminEmpleados admin = new AdminEmpleados();
         
-        fer.mostrarDatos();
+        EmpleadoPorHora Fer = new EmpleadoPorHora(26003, "Fer", 40, 5.50);
+        EmpleadoPorComision Javi = new EmpleadoPorComision(26432, "Javi", 40, 6, 0.10);
+        EmpleadoAdministrativo Angel = new EmpleadoAdministrativo(26093, "Angel", 300);
+       
+        admin.registrarEmpleado(Fer);
+        admin.registrarEmpleado(Javi);
+        admin.registrarEmpleado(Fer);
+        admin.registrarEmpleado(Fer);
+        admin.registrarEmpleado(Angel);
+        admin.registrarEmpleado(Angel);
    }
     
 }
