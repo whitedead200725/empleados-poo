@@ -28,7 +28,9 @@ public class Main {
         admin.registrarEmpleado(Angel);
         admin.registrarEmpleado(Angel);
         
+        
         admin.consultarEmpleados();
+        admin.calcularRemuneraciones();
    }
     
 }

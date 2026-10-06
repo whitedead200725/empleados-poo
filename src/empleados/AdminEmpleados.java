@@ -20,9 +20,8 @@ import java.util.ArrayList;
  */
 public class AdminEmpleados {
     
-    
 private ArrayList<Empleado> empleados;
-    
+private String aviso = "- [𝗦𝗶𝘀𝘁𝗲𝗺𝗮 𝗩𝗮𝗰í𝗼] Registra al menos un empleado para habilitar la función de: ";
 public AdminEmpleados() {
     empleados = new ArrayList<>();
 }    
@@ -46,14 +45,30 @@ public void registrarEmpleado(Empleado empleado) {
          }
 
 public void consultarEmpleados() {
-        if (empleados.isEmpty()) {
-                System.out.println("No hay empleados registrados");
+        if (empleados.size() > 0) {
+            System.out.println("\n -⋆⋅☆⋅⋆- 𝗹𝗶𝘀𝘁𝗮 𝗱𝗲 𝘁𝗼𝗱𝗼𝘀 𝗹𝗼𝘀 𝗲𝗺𝗽𝗹𝗲𝗮𝗱𝗼𝘀 𝗿𝗲𝗴𝗶𝘀𝘁𝗿𝗮𝗱𝗼𝘀 -⋆⋅☆⋅⋆- \n");
+                for (Empleado listaDeEmples : empleados){
+                    listaDeEmples.mostrarDatos();
+                } 
+            return;
+          }
+            System.out.println(aviso + "𝗰𝗼𝗻𝘀𝘂𝗹𝘁𝗮𝗿 𝗲𝗺𝗽𝗹𝗲𝗮𝗱𝗼𝘀" );
+ }
+
+
+public void calcularRemuneraciones() {
+    double monyTotal = 0;
+    
+    if (empleados.size() > 0) {
+            System.out.println("\n -⋆⋅☆⋅⋆- 𝗘𝗺𝗽𝗹𝗲𝗮𝗱𝗼𝘀 𝘆 𝘀𝘂 𝗿𝗲𝗺𝘂𝗻𝗲𝗿𝗮𝗰𝗶ó𝗻 -⋆⋅☆⋅⋆- \n");
+            for (Empleado remuneXEmple : empleados){
+                System.out.println("- " + remuneXEmple.getNombre() + " gana: $" + remuneXEmple.calcularSalario() );
+                monyTotal += remuneXEmple.calcularSalario();
+            } 
+                System.out.println("\nTotal de remuneraciones: $" + monyTotal + "\n");
                 return;
-        } 
-            System.out.println("\n -- 𝗹𝗶𝘀𝘁𝗮 𝗱𝗲 𝘁𝗼𝗱𝗼𝘀 𝗹𝗼𝘀 𝗲𝗺𝗽𝗹𝗲𝗮𝗱𝗼𝘀 𝗿𝗲𝗴𝗶𝘀𝘁𝗿𝗮𝗱𝗼𝘀-- \n");
-            for (Empleado Lista : empleados){
-                Lista.mostrarDatos();
-                }
- } 
+    }
+            System.out.println(aviso + "𝗰𝗮𝗹𝗰𝘂𝗹𝗮𝗿 𝗿𝗲𝗺𝘂𝗻𝗲𝗿𝗮𝗰𝗶𝗼𝗻𝗲𝘀");
+}
     
 }
