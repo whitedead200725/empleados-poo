@@ -14,8 +14,7 @@ import java.util.Scanner;
  * Calcular remuneraciones. Generar reportes, Modificar información, Consultar información según el tipo de empleado.
  * 
  * 
- *  ------ AUN EN DESARROLLO ------ 
- * 
+ *  
  * @author rober
  */
 public class AdminEmpleados {
@@ -54,7 +53,6 @@ public void consultarEmpleados() {
           }
             System.out.println(aviso + "𝗰𝗼𝗻𝘀𝘂𝗹𝘁𝗮𝗿 𝗲𝗺𝗽𝗹𝗲𝗮𝗱𝗼𝘀" );
  }
-
 
 public void calcularRemuneraciones() {
     double monyTotal = 0;
@@ -108,7 +106,6 @@ public void generarReporte(){
         System.out.println(aviso + "𝗴𝗲𝗻𝗲𝗿𝗮𝗿 𝗿𝗲𝗽𝗼𝗿𝘁𝗲");
 }
 
-
 public void modificarInformacion(int IdEmpleado) {
     Empleado emple =buscarEmpleadoXId(IdEmpleado);
     Scanner newDato = new Scanner(System.in);
@@ -127,8 +124,101 @@ public void modificarInformacion(int IdEmpleado) {
         return;
     } // Fin del if
         System.out.printf("- [𝗡𝗼 𝘀𝗲 𝗲𝗻𝗰𝗼𝗻𝘁𝗿𝗼 𝘂𝗻 𝗲𝗺𝗽𝗹𝗲𝗮𝗱𝗼 𝗰𝗼𝗻 𝗲𝗹 𝗜𝗗: %d] \n", IdEmpleado);
-    
-    
 }
+
+
+public void consultarPorTipoEmpleado() {
+    if (empleados.isEmpty()) {
+    System.out.println("No hay empleados registrados en el sistema.");
+    return;
+    }
+
+    Scanner sc = new Scanner(System.in);
+    System.out.println("\n--- Seleccione el tipo de empleado a consultar ---");
+    System.out.println("1. Empleado Administrativo");
+    System.out.println("2. Empleado Por Hora");
+    System.out.println("3. Empleado Por Comisión");
+    System.out.print("Elija una opción (1-3): ");
+    
+    int selec = sc.nextInt();
+    String claseBuscada = "";
+
+    switch (selec) {
+        case 1:
+            claseBuscada = "EmpleadoAdministrativo";
+            break;
+        case 2:
+            claseBuscada = "EmpleadoPorHora";
+            break;
+        case 3:
+            claseBuscada = "EmpleadoPorComision";
+            break;
+        default:
+            System.out.println("Opción inválida.");
+            return;
+    }
+
+    System.out.println("\n -⋆⋅☆⋅⋆- 𝗘𝗺𝗽𝗹𝗲𝗮𝗱𝗼𝘀 𝗳𝗶𝗹𝘁𝗿𝗮𝗱𝗼𝘀 -⋆⋅☆⋅⋆-\n");
+    int contador = 0;
+
+    for (Empleado emp : empleados) {
+        String nombreClase = emp.getClass().getSimpleName();
+        
+        if (nombreClase.equals(claseBuscada)) {
+            emp.mostrarDatos();
+            contador++;
+        }
+    }
+    
+    if (contador == 0) {
+        System.out.println("No se encontraron empleados registrados bajo esta categoría.");
+    } else {
+        System.out.printf("Total de registros encontrados para esta categoría: %d\n", contador);
+    }
+}
+
+public void registrarNuevoEmpleado() {
+    Scanner sc = new Scanner(System.in);
+    
+    System.out.println("\n--- REGISTRO DE NUEVO EMPLEADO ---");
+    System.out.print("Ingrese el ID del empleado: ");
+    int id = sc.nextInt();
+    sc.nextLine();
+    
+    System.out.print("Ingrese el nombre del empleado: ");
+    String nombre = sc.nextLine().trim();
+    
+    System.out.println("\nSeleccione el tipo de empleado:");
+    System.out.println("1. Administrativo");
+    System.out.println("2. Por Hora");
+    System.out.println("3. Por Comisión");
+    System.out.print("Elija una opción (1-3): ");
+    int tipo = sc.nextInt();
+    sc.nextLine();
+    
+    Empleado nuevoEmpleado = null;
+
+    switch (tipo) {
+        case 1:
+            nuevoEmpleado = new EmpleadoAdministrativo(id, nombre, 0.0);
+            break;
+        case 2:
+            nuevoEmpleado = new EmpleadoPorHora(id, nombre, 0.0, 0.0);
+            break;
+        case 3:
+            nuevoEmpleado = new EmpleadoPorComision(id, nombre, 0.0, 0.0, 0.0);
+            break;
+        default:
+            System.out.println("Opción de tipo inválida. Registro cancelado.");
+            return;
+    }
+    
+    nuevoEmpleado.actualizarDatos();
+    
+    empleados.add(nuevoEmpleado);
+    
+    System.out.println("\n¡Empleado registrado exitosamente en el sistema!");
+}
+
 
 }
