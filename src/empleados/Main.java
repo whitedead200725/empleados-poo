@@ -22,8 +22,7 @@ public class Main {
         AdminEmpleados admin = new AdminEmpleados();
         Scanner opcsn = new Scanner(System.in);
         int num = 0;
-
-        // 2. Ciclo interactivo del menú principal
+        
         while (num != 5) {
             System.out.println("\n============== 𝗦𝗜𝗦𝗧𝗘𝗠𝗔 𝗗𝗘 𝗡Ó𝗠𝗜𝗡𝗔 ============== ");
             System.out.println("1. Registrar nuevo empleado");
