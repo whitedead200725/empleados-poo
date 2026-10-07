@@ -4,6 +4,8 @@
  */
 package empleados;
 
+import java.util.Scanner;
+
 /**
  * La clase es para un empleado que cobra por horas trabajadas
  * 
@@ -44,6 +46,21 @@ public class EmpleadoPorHora extends Empleado {
         System.out.println();
     }
     
+    @Override
+    public void actualizarDatos() {
+        Scanner newDato = new Scanner(System.in);
+
+        System.out.printf("Escriba las nuevas horas trabajadas de %s (o presiona ENTER para mantener %f)", getNombre(), getHorasTrabajadas());
+        String newHorasTrab = newDato.nextLine().trim();
+        if (!newHorasTrab.isEmpty()) {
+            this.horasTrabajadas = Double.parseDouble(newHorasTrab);
+        }
+            System.out.printf("Escriba el nuevo valor por hora (o presione ENTER para mantener $%.2f)", getValorPorHora());
+            String newValHoras = newDato.nextLine().trim();
+            if (!newValHoras.isEmpty()) {
+                this.valorPorHora = Double.parseDouble(newValHoras);
+            }
+    }
     // getter de los parámetros de valorPorHora y horasTrabajadas
     public double getHorasTrabajadas() {
         return horasTrabajadas;

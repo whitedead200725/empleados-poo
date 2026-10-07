@@ -38,6 +38,7 @@ public abstract class Empleado {
  * @return el salario calculado
  */
     public abstract double calcularSalario();
+    public abstract void actualizarDatos();
     
     public void mostrarDatos() {
     System.out.println("========================= ");

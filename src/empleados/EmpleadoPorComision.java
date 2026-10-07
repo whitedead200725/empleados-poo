@@ -1,5 +1,7 @@
 package empleados;
 
+import java.util.Scanner;
+
 /**
  * Representa a un empleado que gana un salario base más una comisión
  * calculada sobre sus ventas realizadas. El porcentaje de comisión se maneja
@@ -55,4 +57,33 @@ public class EmpleadoPorComision extends Empleado {
         System.out.println("Porcentaje de comisión: " + porcentajeComision);
         System.out.println("Salario total: " + calcularSalario() + "\n");
     }
+    
+    @Override
+        public void actualizarDatos() {
+        Scanner newDato = new Scanner(System.in);
+        
+        System.out.printf("Escriba el nuevo salario base (o presione ENTER para mantener $%.2f)", getSalarioBase());
+        String newSalarioBs = newDato.nextLine().trim();
+        if (!newSalarioBs.isEmpty()) {
+            this.salarioBase = Double.parseDouble(newSalarioBs);
+        }
+        
+        System.out.printf("Escriba las nuevas ventas realizas (o presione ENTER para mantener $%.2f)", getVentasRealizadas());
+        String newVentasRealiz = newDato.nextLine().trim();
+        if (!newVentasRealiz.isEmpty()) {
+            this.salarioBase = Double.parseDouble(newVentasRealiz);
+        }
+        
+        System.out.printf("Escriba el nuevo porcentaje de comision  (o presione ENTER para mantener $%.2f)", getPorcentajeComision());
+        String newPorcnVentas = newDato.nextLine().trim();
+        if (!newPorcnVentas.isEmpty()) {
+            this.salarioBase = Double.parseDouble(newPorcnVentas);
+        }
+        } // clase
+        
+        
+        
+        
+    
+    
 }

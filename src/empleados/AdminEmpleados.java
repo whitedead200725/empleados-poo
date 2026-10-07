@@ -5,7 +5,7 @@
 package empleados;
 
 import java.util.ArrayList;
-
+import java.util.Scanner;
 /**
  *Esta clase administra la lista de empleados de todo el sistema
  * 
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class AdminEmpleados {
     
 private ArrayList<Empleado> empleados;
-private String aviso = "- [𝗦𝗶𝘀𝘁𝗲𝗺𝗮 𝗩𝗮𝗰í𝗼] Registra al menos un empleado para habilitar la función de: ";
+private String aviso = "- [𝗦𝗶𝘀𝘁𝗲𝗺𝗮 𝗩𝗮𝗰í𝗼] Registra al menos un empleado para habilitar la f@unción de: ";
 public AdminEmpleados() {
     empleados = new ArrayList<>();
 }    
@@ -83,8 +83,8 @@ public void generarReporte(){
             System.out.printf("- Empleado: %s | ID: %d | Salario %.2f |\n", reportEmplea2.getNombre(), reportEmplea2.getIdEmpleado(), reportEmplea2.calcularSalario());
             monyTotal2 += reportEmplea2.calcularSalario(); 
                
-            String nombreClase = reportEmplea2.getClass().getSimpleName();
-                switch (nombreClase) {
+            String nameClase = reportEmplea2.getClass().getSimpleName();
+                switch (nameClase) {
                 case "EmpleadoAdministrativo":
                     EmpleadoAdministrativo++;
                     break;
@@ -102,9 +102,33 @@ public void generarReporte(){
             System.out.printf("\nEmpleados Administrativos: %d", EmpleadoAdministrativo);            
             System.out.printf("\nEmpleados Por hora: %d", EmpleadoPorHora);            
             System.out.printf("\nEmpleados Por comisión: %d\n",EmpleadoPorComision);            
-            System.out.printf("\nPago de todos los empleados en total: $%.2f\n", monyTotal2);      
+            System.out.printf("\nPago de todos los empleados en total: $%.2f\n", monyTotal2);  
+            return;
      }
+        System.out.println(aviso + "𝗴𝗲𝗻𝗲𝗿𝗮𝗿 𝗿𝗲𝗽𝗼𝗿𝘁𝗲");
+}
 
+
+public void modificarInformacion(int IdEmpleado) {
+    Empleado emple =buscarEmpleadoXId(IdEmpleado);
+    Scanner newDato = new Scanner(System.in);
+    
+    if (emple != null) {
+       System.out.printf("El empleado %s fue encontrado\n", emple.getNombre());
+       System.out.printf("Escriba el nuevo nombre (o presione ENTER para mantener %s): ", emple.getNombre());
+       String newNombre = newDato.nextLine().trim();
+              
+     if (!newNombre.isEmpty()) {
+         emple.setNombre(newNombre);
+     }
+        emple.actualizarDatos();
+        System.out.print("Los datos fueron correctamente actualizados");
+        emple.mostrarDatos();
+        return;
+    } // Fin del if
+        System.out.printf("- [𝗡𝗼 𝘀𝗲 𝗲𝗻𝗰𝗼𝗻𝘁𝗿𝗼 𝘂𝗻 𝗲𝗺𝗽𝗹𝗲𝗮𝗱𝗼 𝗰𝗼𝗻 𝗲𝗹 𝗜𝗗: %d] \n", IdEmpleado);
+    
+    
 }
 
 }
