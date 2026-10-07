@@ -70,5 +70,41 @@ public void calcularRemuneraciones() {
     }
             System.out.println(aviso + "𝗰𝗮𝗹𝗰𝘂𝗹𝗮𝗿 𝗿𝗲𝗺𝘂𝗻𝗲𝗿𝗮𝗰𝗶𝗼𝗻𝗲𝘀");
 }
+
+public void generarReporte(){
+    double monyTotal2 = 0;
+    int EmpleadoAdministrativo =0;
+    int EmpleadoPorHora = 0;
+    int EmpleadoPorComision = 0;
     
+     if (empleados.size() > 0) {
+        System.out.println("\n -⋆⋅☆⋅⋆- R𝗲𝗽𝗼𝗿𝘁𝗲 𝗱𝗲 𝗲𝗺𝗽𝗹𝗲𝗮𝗱𝗼𝘀 -⋆⋅☆⋅⋆- \n");
+            for (Empleado reportEmplea2 : empleados){
+            System.out.printf("- Empleado: %s | ID: %d | Salario %.2f |\n", reportEmplea2.getNombre(), reportEmplea2.getIdEmpleado(), reportEmplea2.calcularSalario());
+            monyTotal2 += reportEmplea2.calcularSalario(); 
+               
+            String nombreClase = reportEmplea2.getClass().getSimpleName();
+                switch (nombreClase) {
+                case "EmpleadoAdministrativo":
+                    EmpleadoAdministrativo++;
+                    break;
+                case "EmpleadoPorHora":
+                    EmpleadoPorHora++;
+                    break;
+                case "EmpleadoPorComision":
+                     EmpleadoPorComision++;
+                     break;
+                }
+            }
+            
+            System.out.println("\n\n         -- 𝗡ó𝗺𝗶𝗻𝗮 --");
+            System.out.printf("\nTotal de empleados en el sistema: %d \n", empleados.size());
+            System.out.printf("\nEmpleados Administrativos: %d", EmpleadoAdministrativo);            
+            System.out.printf("\nEmpleados Por hora: %d", EmpleadoPorHora);            
+            System.out.printf("\nEmpleados Por comisión: %d\n",EmpleadoPorComision);            
+            System.out.printf("\nPago de todos los empleados en total: $%.2f\n", monyTotal2);      
+     }
+
+}
+
 }

@@ -31,6 +31,7 @@ public class Main {
         
         admin.consultarEmpleados();
         admin.calcularRemuneraciones();
+        admin.generarReporte();
    }
     
 }
