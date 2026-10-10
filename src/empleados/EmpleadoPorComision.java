@@ -59,31 +59,27 @@ public class EmpleadoPorComision extends Empleado {
     }
     
     @Override
-        public void actualizarDatos() {
-        Scanner newDato = new Scanner(System.in);
+public void actualizarDatos() {
+    try (Scanner newDato = new Scanner(System.in)) {
         
-        System.out.printf("Escriba el nuevo salario base (o presione ENTER para mantener $%.2f)", getSalarioBase());
+        System.out.printf("Escriba el nuevo salario base (o presione ENTER para mantener $%.2f): ", getSalarioBase());
         String newSalarioBs = newDato.nextLine().trim();
         if (!newSalarioBs.isEmpty()) {
             this.salarioBase = Double.parseDouble(newSalarioBs);
         }
         
-        System.out.printf("Escriba las nuevas ventas realizas (o presione ENTER para mantener $%.2f)", getVentasRealizadas());
+        System.out.printf("Escriba las nuevas ventas realizadas (o presione ENTER para mantener $%.2f): ", getVentasRealizadas());
         String newVentasRealiz = newDato.nextLine().trim();
         if (!newVentasRealiz.isEmpty()) {
             this.ventasRealizadas = Double.parseDouble(newVentasRealiz);
         }
         
-        System.out.printf("Escriba el nuevo porcentaje de comision  (o presione ENTER para mantener $%.2f)", getPorcentajeComision());
+        System.out.printf("Escriba el nuevo porcentaje de comisión (o presione ENTER para mantener %.2f%%): ", getPorcentajeComision());
         String newPorcnVentas = newDato.nextLine().trim();
         if (!newPorcnVentas.isEmpty()) {
             this.porcentajeComision = Double.parseDouble(newPorcnVentas);
         }
-        } // clase
-        
-        
-        
-        
-    
-    
+    }
+}
+
 }
