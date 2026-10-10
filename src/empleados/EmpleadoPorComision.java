@@ -71,13 +71,13 @@ public class EmpleadoPorComision extends Empleado {
         System.out.printf("Escriba las nuevas ventas realizas (o presione ENTER para mantener $%.2f)", getVentasRealizadas());
         String newVentasRealiz = newDato.nextLine().trim();
         if (!newVentasRealiz.isEmpty()) {
-            this.salarioBase = Double.parseDouble(newVentasRealiz);
+            this.ventasRealizadas = Double.parseDouble(newVentasRealiz);
         }
         
         System.out.printf("Escriba el nuevo porcentaje de comision  (o presione ENTER para mantener $%.2f)", getPorcentajeComision());
         String newPorcnVentas = newDato.nextLine().trim();
         if (!newPorcnVentas.isEmpty()) {
-            this.salarioBase = Double.parseDouble(newPorcnVentas);
+            this.porcentajeComision = Double.parseDouble(newPorcnVentas);
         }
         } // clase
         
