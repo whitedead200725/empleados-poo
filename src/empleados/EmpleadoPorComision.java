@@ -60,7 +60,7 @@ public class EmpleadoPorComision extends Empleado {
     
     @Override
 public void actualizarDatos() {
-    try (Scanner newDato = new Scanner(System.in)) {
+    Scanner newDato = new Scanner(System.in);
         
         System.out.printf("Escriba el nuevo salario base (o presione ENTER para mantener $%.2f): ", getSalarioBase());
         String newSalarioBs = newDato.nextLine().trim();
@@ -80,6 +80,4 @@ public void actualizarDatos() {
             this.porcentajeComision = Double.parseDouble(newPorcnVentas);
         }
     }
-}
-
 }
